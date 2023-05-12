@@ -7,7 +7,7 @@ export const Register = () => {
 		var { jwt } = (
 			await axios({
 				baseURL: window.API_ENDPOINT,
-				url: "/users",
+				url: "/register",
 				method: "post",
 				data: {
 					username: document.getElementById("username_input").value,

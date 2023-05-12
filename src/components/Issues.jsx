@@ -11,13 +11,17 @@ export const Issues = () => {
 					baseURL: window.API_ENDPOINT,
 					url: "/issues",
 					method: "get",
+					
+					headers: {
+						jwt : window.localStorage.getItem('jwt')
+					}
 				})
-			).data.issues
+			).data
 		);
 	}
 	useEffect(() => {
 		fetch_data();
-	});
+	}, []);
 	if (issues === undefined) return <h1>still loading issues...</h1>;
 	return (
 		<>
@@ -36,7 +40,7 @@ export const Issues = () => {
 							<td>{issue.id}</td>
 							<td>{issue.question}</td>
 							<td>
-								<Link to={`/issues/${issue.id}`} />{" "}
+								<Link to={`/issues/${issue.id}`}>open it </Link>
 							</td>
 						</tr>
 					))}

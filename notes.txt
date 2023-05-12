@@ -1,2 +1,4 @@
 backend port : 4000 
 front end port : 3000
+
+some bg processes of run and start scripts remain working after command is terminated with SIGINT 
